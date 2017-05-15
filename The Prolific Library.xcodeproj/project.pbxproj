@@ -1,0 +1,427 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		23CE321E1ECA2B2E00E0F2DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE321D1ECA2B2E00E0F2DB /* AppDelegate.swift */; };
+		23CE32201ECA2B2E00E0F2DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE321F1ECA2B2E00E0F2DB /* ViewController.swift */; };
+		23CE32231ECA2B2E00E0F2DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23CE32211ECA2B2E00E0F2DB /* Main.storyboard */; };
+		23CE32251ECA2B2E00E0F2DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23CE32241ECA2B2E00E0F2DB /* Assets.xcassets */; };
+		23CE32281ECA2B2E00E0F2DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23CE32261ECA2B2E00E0F2DB /* LaunchScreen.storyboard */; };
+		23CE32331ECA2B2E00E0F2DB /* The_Prolific_LibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE32321ECA2B2E00E0F2DB /* The_Prolific_LibraryTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		23CE322F1ECA2B2E00E0F2DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23CE32121ECA2B2E00E0F2DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 23CE32191ECA2B2E00E0F2DB;
+			remoteInfo = "The Prolific Library";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		23CE321A1ECA2B2E00E0F2DB /* The Prolific Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Prolific Library.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		23CE321D1ECA2B2E00E0F2DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		23CE321F1ECA2B2E00E0F2DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		23CE32221ECA2B2E00E0F2DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		23CE32241ECA2B2E00E0F2DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		23CE32271ECA2B2E00E0F2DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		23CE32291ECA2B2E00E0F2DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23CE322E1ECA2B2E00E0F2DB /* The Prolific LibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The Prolific LibraryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		23CE32321ECA2B2E00E0F2DB /* The_Prolific_LibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The_Prolific_LibraryTests.swift; sourceTree = "<group>"; };
+		23CE32341ECA2B2E00E0F2DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		23CE32171ECA2B2E00E0F2DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23CE322B1ECA2B2E00E0F2DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		23CE32111ECA2B2E00E0F2DB = {
+			isa = PBXGroup;
+			children = (
+				23CE321C1ECA2B2E00E0F2DB /* The Prolific Library */,
+				23CE32311ECA2B2E00E0F2DB /* The Prolific LibraryTests */,
+				23CE321B1ECA2B2E00E0F2DB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		23CE321B1ECA2B2E00E0F2DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23CE321A1ECA2B2E00E0F2DB /* The Prolific Library.app */,
+				23CE322E1ECA2B2E00E0F2DB /* The Prolific LibraryTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		23CE321C1ECA2B2E00E0F2DB /* The Prolific Library */ = {
+			isa = PBXGroup;
+			children = (
+				23CE321D1ECA2B2E00E0F2DB /* AppDelegate.swift */,
+				23CE321F1ECA2B2E00E0F2DB /* ViewController.swift */,
+				23CE32211ECA2B2E00E0F2DB /* Main.storyboard */,
+				23CE32241ECA2B2E00E0F2DB /* Assets.xcassets */,
+				23CE32261ECA2B2E00E0F2DB /* LaunchScreen.storyboard */,
+				23CE32291ECA2B2E00E0F2DB /* Info.plist */,
+			);
+			path = "The Prolific Library";
+			sourceTree = "<group>";
+		};
+		23CE32311ECA2B2E00E0F2DB /* The Prolific LibraryTests */ = {
+			isa = PBXGroup;
+			children = (
+				23CE32321ECA2B2E00E0F2DB /* The_Prolific_LibraryTests.swift */,
+				23CE32341ECA2B2E00E0F2DB /* Info.plist */,
+			);
+			path = "The Prolific LibraryTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		23CE32191ECA2B2E00E0F2DB /* The Prolific Library */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23CE32371ECA2B2E00E0F2DB /* Build configuration list for PBXNativeTarget "The Prolific Library" */;
+			buildPhases = (
+				23CE32161ECA2B2E00E0F2DB /* Sources */,
+				23CE32171ECA2B2E00E0F2DB /* Frameworks */,
+				23CE32181ECA2B2E00E0F2DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "The Prolific Library";
+			productName = "The Prolific Library";
+			productReference = 23CE321A1ECA2B2E00E0F2DB /* The Prolific Library.app */;
+			productType = "com.apple.product-type.application";
+		};
+		23CE322D1ECA2B2E00E0F2DB /* The Prolific LibraryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23CE323A1ECA2B2E00E0F2DB /* Build configuration list for PBXNativeTarget "The Prolific LibraryTests" */;
+			buildPhases = (
+				23CE322A1ECA2B2E00E0F2DB /* Sources */,
+				23CE322B1ECA2B2E00E0F2DB /* Frameworks */,
+				23CE322C1ECA2B2E00E0F2DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				23CE32301ECA2B2E00E0F2DB /* PBXTargetDependency */,
+			);
+			name = "The Prolific LibraryTests";
+			productName = "The Prolific LibraryTests";
+			productReference = 23CE322E1ECA2B2E00E0F2DB /* The Prolific LibraryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		23CE32121ECA2B2E00E0F2DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Gungor Basa";
+				TargetAttributes = {
+					23CE32191ECA2B2E00E0F2DB = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 456T4LX972;
+						ProvisioningStyle = Automatic;
+					};
+					23CE322D1ECA2B2E00E0F2DB = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 456T4LX972;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 23CE32191ECA2B2E00E0F2DB;
+					};
+				};
+			};
+			buildConfigurationList = 23CE32151ECA2B2E00E0F2DB /* Build configuration list for PBXProject "The Prolific Library" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 23CE32111ECA2B2E00E0F2DB;
+			productRefGroup = 23CE321B1ECA2B2E00E0F2DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				23CE32191ECA2B2E00E0F2DB /* The Prolific Library */,
+				23CE322D1ECA2B2E00E0F2DB /* The Prolific LibraryTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		23CE32181ECA2B2E00E0F2DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23CE32281ECA2B2E00E0F2DB /* LaunchScreen.storyboard in Resources */,
+				23CE32251ECA2B2E00E0F2DB /* Assets.xcassets in Resources */,
+				23CE32231ECA2B2E00E0F2DB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23CE322C1ECA2B2E00E0F2DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		23CE32161ECA2B2E00E0F2DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23CE32201ECA2B2E00E0F2DB /* ViewController.swift in Sources */,
+				23CE321E1ECA2B2E00E0F2DB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23CE322A1ECA2B2E00E0F2DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23CE32331ECA2B2E00E0F2DB /* The_Prolific_LibraryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		23CE32301ECA2B2E00E0F2DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 23CE32191ECA2B2E00E0F2DB /* The Prolific Library */;
+			targetProxy = 23CE322F1ECA2B2E00E0F2DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		23CE32211ECA2B2E00E0F2DB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23CE32221ECA2B2E00E0F2DB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		23CE32261ECA2B2E00E0F2DB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23CE32271ECA2B2E00E0F2DB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		23CE32351ECA2B2E00E0F2DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		23CE32361ECA2B2E00E0F2DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		23CE32381ECA2B2E00E0F2DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 456T4LX972;
+				INFOPLIST_FILE = "The Prolific Library/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gungor.The-Prolific-Library";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		23CE32391ECA2B2E00E0F2DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 456T4LX972;
+				INFOPLIST_FILE = "The Prolific Library/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gungor.The-Prolific-Library";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		23CE323B1ECA2B2E00E0F2DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 456T4LX972;
+				INFOPLIST_FILE = "The Prolific LibraryTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gungor.The-Prolific-LibraryTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/The Prolific Library.app/The Prolific Library";
+			};
+			name = Debug;
+		};
+		23CE323C1ECA2B2E00E0F2DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 456T4LX972;
+				INFOPLIST_FILE = "The Prolific LibraryTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gungor.The-Prolific-LibraryTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/The Prolific Library.app/The Prolific Library";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		23CE32151ECA2B2E00E0F2DB /* Build configuration list for PBXProject "The Prolific Library" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23CE32351ECA2B2E00E0F2DB /* Debug */,
+				23CE32361ECA2B2E00E0F2DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23CE32371ECA2B2E00E0F2DB /* Build configuration list for PBXNativeTarget "The Prolific Library" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23CE32381ECA2B2E00E0F2DB /* Debug */,
+				23CE32391ECA2B2E00E0F2DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		23CE323A1ECA2B2E00E0F2DB /* Build configuration list for PBXNativeTarget "The Prolific LibraryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23CE323B1ECA2B2E00E0F2DB /* Debug */,
+				23CE323C1ECA2B2E00E0F2DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 23CE32121ECA2B2E00E0F2DB /* Project object */;
+}
