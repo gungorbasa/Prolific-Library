@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        NetworkAdapter.Get(urlTail: "books") { (book) in
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {

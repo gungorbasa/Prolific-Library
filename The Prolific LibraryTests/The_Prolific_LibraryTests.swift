@@ -22,9 +22,20 @@ class The_Prolific_LibraryTests: XCTestCase {
     }
     
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        getAllBooks()
     }
+    
+    func postBook() {
+        let book = Book(author: "Gungor Basa", categories: "Novel", title: "Into the Water", publisher: "Oreilly")
+        NetworkAdapter.Post(urlTail: "books", book: book)
+    }
+    
+    func getAllBooks() {
+        NetworkAdapter.Get(urlTail: "books") { (books) in
+            print(books)
+        }
+    }
+    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

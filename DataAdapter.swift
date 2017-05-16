@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+class DataAdapter {
+    private init() { }
+    
+    // MARK: Shared Instance
+    static let shared = DataAdapter()
+    
+    func getData() {
+        
+    }
+    
+}
