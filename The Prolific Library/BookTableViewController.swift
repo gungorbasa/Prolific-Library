@@ -123,6 +123,8 @@ extension BookTableViewController: UITableViewDataSource, UITableViewDelegate {
             DataAdapter.deleteBook(url: books[indexPath.row].url, isSuccess: { (isSuccess) in
                 if isSuccess {
                     self.books.remove(at: indexPath.row)
+                } else {
+                    
                 }
             })
         }

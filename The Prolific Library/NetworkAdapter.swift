@@ -11,7 +11,7 @@ import Alamofire
 import AlamofireObjectMapper
 
 class NetworkAdapter {
-    static let baseUrl = "http://prolific-interview.herokuapp.com/5919f1567cc3aa000af4f717/"
+    static let baseUrl = "http://prolific-interview.herokuapp.com/5919f1567cc3aa000af4f717"
     
     class func Get(urlTail: String, completion: @escaping ([Book]?) -> Void) {
         Alamofire.request(baseUrl+urlTail).responseArray { (response: DataResponse<[Book]>) in
@@ -40,29 +40,16 @@ class NetworkAdapter {
     
     class func Delete(urlTail: String, isSuccess: @escaping (Bool) -> Void) {
         Alamofire.request(baseUrl+urlTail, method: .delete, parameters: nil, encoding: JSONEncoding.default).response(queue: nil) { (response) in
-            guard response.error == nil else {
-                print("Delete Operation is failed.\n\(String(describing: response.error?.localizedDescription))")
-                isSuccess(false)
-                return
+            if response.response?.statusCode == 204 {
+                guard response.error == nil else {
+                    print("Delete Operation is failed.\n\(String(describing: response.error?.localizedDescription))")
+                    isSuccess(false)
+                    return
+                }
+                isSuccess(true)
             }
-            isSuccess(true)
+            isSuccess(false)
+            
         }
-        
-//        Alamofire.request(baseUrl+urlTail, method: .delete, parameters: nil, encoding: JSONEncoding.default)
-//            .responseJSON { response in
-//                if response.result.isSuccess {
-//                    // Show some alert view
-//                    print("\(urlTail) i successfully deleted..")
-//                    isSuccess(true)
-//                } else {
-//                    // Show some alert view
-//                    print("Delete Operation is failed.\n\(String(describing: response.error?.localizedDescription))")
-//                    isSuccess(false)
-//                }
-//        }
-    }
-    
-    class func CleanDatabase() {
-        
     }
 }

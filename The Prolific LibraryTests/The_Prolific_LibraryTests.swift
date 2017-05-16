@@ -22,17 +22,26 @@ class The_Prolific_LibraryTests: XCTestCase {
     }
     
     func testExample() {
-        getAllBooks()
-    }
-    
-    func postBook() {
-        let book = Book(author: "Gungor Basa", categories: "Novel", title: "Into the Water", publisher: "Oreilly")
-        NetworkAdapter.Post(urlTail: "books", book: book)
+        createBooks()
     }
     
     func getAllBooks() {
-        NetworkAdapter.Get(urlTail: "books") { (books) in
-            print(books)
+        DataAdapter.getBooks { (books) in
+            print(books ?? "There is no book!")
+        }
+    }
+    
+    func createBooks() {
+        var book = Book(author: "Gungor Basa", categories: "Novel", title: "Title", publisher: "O'Reily")
+        for i in 1...5 {
+            book.author += String(i)
+            book.categories += String(i)
+            book.title += String(i)
+            book.publisher += String(i)
+            
+            DataAdapter.postBook(book: book, completion: { (book) in
+                print("Book is created: \(String(describing: book))")
+            })
         }
     }
     

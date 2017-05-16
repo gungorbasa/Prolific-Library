@@ -16,13 +16,22 @@ class DataAdapter {
     
     class func getBooks(completion: @escaping ([Book]?) -> Void) {
         // Based on the connection, we can use network or db here
-        NetworkAdapter.Get(urlTail: "books") { (books) in
+        NetworkAdapter.Get(urlTail: "/books") { (books) in
             completion(books)
         }
     }
     
+    class func getBook(urlTail: String, completion: @escaping (Book?) -> Void) {
+        NetworkAdapter.Get(urlTail: urlTail) { (books) in
+            if books?.count != 0 {
+                completion(books?[0])
+            }
+            completion(nil)
+        }
+    }
+    
     class func postBook(book: Book, completion: @escaping (Book?) -> Void) {
-        NetworkAdapter.Post(urlTail: "books", book: book) { (book) in
+        NetworkAdapter.Post(urlTail: "/books", book: book) { (book) in
             completion(book)
         }
     
@@ -30,6 +39,10 @@ class DataAdapter {
     
     class func deleteBook(url: String, isSuccess: @escaping (Bool) -> Void) {
         NetworkAdapter.Delete(urlTail: url, isSuccess: isSuccess)
+    }
+    
+    class func deleteAll(isSuccess: @escaping (Bool) -> Void) {
+        NetworkAdapter.Delete(urlTail: "/clean", isSuccess: isSuccess)
     }
     
 }
