@@ -18,19 +18,12 @@ class NetworkAdapter {
             if response.result.isSuccess {
                 completion(response.value)
             }
-            
-            var i = 1
-            
-            for item in response.value! {
-                print("\(i): \(item)")
-                i+=1
-            }
             completion(nil)
         }
         
     }
     
-    class func Post(urlTail: String, book: Book) {
+    class func Post(urlTail: String, book: Book, completion: @escaping (Book?) -> Void) {
         let parameters = book.post
         Alamofire.request(baseUrl+urlTail, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { response in

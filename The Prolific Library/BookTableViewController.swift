@@ -17,11 +17,12 @@ class BookTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        NetworkAdapter.Get(urlTail: "books", completion: { (result) in
+        self.automaticallyAdjustsScrollViewInsets = false
+        DataAdapter.getBooks { (result) in
             if result != nil {
                 self.books = result!
             }
-        })
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
