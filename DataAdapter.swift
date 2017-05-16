@@ -28,4 +28,8 @@ class DataAdapter {
     
     }
     
+    class func deleteBook(url: String, isSuccess: @escaping (Bool) -> Void) {
+        NetworkAdapter.Delete(urlTail: url, isSuccess: isSuccess)
+    }
+    
 }

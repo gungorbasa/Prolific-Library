@@ -8,8 +8,9 @@
 
 import UIKit
 
-class BookTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BookTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var editButton: UIBarButtonItem!
     var books = [Book]() {
         didSet {
             self.tableView.reloadData()
@@ -35,28 +36,19 @@ class BookTableViewController: UIViewController, UITableViewDelegate, UITableVie
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return books.count
+    
+    
+    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        if tableView.isEditing {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(BookTableViewController.editButtonPressed(_:)))
+            
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(BookTableViewController.editButtonPressed(_:)))
+        }
+        tableView.setEditing(!tableView.isEditing, animated: true)
     }
 
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "bookTableViewCell", for: indexPath) as UITableViewCell
-        
-        cell.textLabel?.text = books[indexPath.row].title
-        cell.detailTextLabel?.text = books[indexPath.row].author
-
-        return cell
-    }
  
 
     /*
@@ -104,4 +96,37 @@ class BookTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     */
 
+}
+
+
+extension BookTableViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return books.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "bookTableViewCell", for: indexPath) as UITableViewCell
+        
+        cell.textLabel?.text = books[indexPath.row].title
+        cell.detailTextLabel?.text = books[indexPath.row].author
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            DataAdapter.deleteBook(url: books[indexPath.row].url, isSuccess: { (isSuccess) in
+                if isSuccess {
+                    self.books.remove(at: indexPath.row)
+                }
+            })
+        }
+    }
+    
+    
 }

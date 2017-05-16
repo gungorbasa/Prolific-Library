@@ -47,8 +47,19 @@ class NetworkAdapter {
         
     }
     
-    class func Delete(urlTail: String) {
-        
+    class func Delete(urlTail: String, isSuccess: @escaping (Bool) -> Void) {
+        Alamofire.request(baseUrl+urlTail, method: .delete, parameters: nil, encoding: JSONEncoding.default)
+            .responseJSON { response in
+                if response.result.isSuccess {
+                    // Show some alert view
+                    print("\(urlTail) i successfully deleted..")
+                    isSuccess(true)
+                } else {
+                    // Show some alert view
+                    print("Delete Operation is failed.\n\(String(describing: response.error?.localizedDescription))")
+                    isSuccess(false)
+                }
+        }
     }
     
     class func CleanDatabase() {
