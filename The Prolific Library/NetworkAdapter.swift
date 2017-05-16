@@ -27,20 +27,11 @@ class NetworkAdapter {
         let parameters = book.post
         Alamofire.request(baseUrl+urlTail, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { response in
-                print(response.request as Any)  // original URL request
-                print(response.response as Any) // URL response
-                print(response.result.value as Any)   // result of response serialization
+                if response.result.isSuccess {
+                    completion(book)
+                }
+                completion(nil)
         }
-        
-        
-//        Alamofire.request(baseUrl+urlTail, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
-//            print("Error Message: \(String(describing: response.error))")
-//            if response.result.isSuccess {
-//                print("Network call is succeeded..")
-//            } else {
-//                print("Network call is failed..")
-//            }
-//        }
     }
     
     class func Put(urlTail: String) {
@@ -48,18 +39,27 @@ class NetworkAdapter {
     }
     
     class func Delete(urlTail: String, isSuccess: @escaping (Bool) -> Void) {
-        Alamofire.request(baseUrl+urlTail, method: .delete, parameters: nil, encoding: JSONEncoding.default)
-            .responseJSON { response in
-                if response.result.isSuccess {
-                    // Show some alert view
-                    print("\(urlTail) i successfully deleted..")
-                    isSuccess(true)
-                } else {
-                    // Show some alert view
-                    print("Delete Operation is failed.\n\(String(describing: response.error?.localizedDescription))")
-                    isSuccess(false)
-                }
+        Alamofire.request(baseUrl+urlTail, method: .delete, parameters: nil, encoding: JSONEncoding.default).response(queue: nil) { (response) in
+            guard response.error == nil else {
+                print("Delete Operation is failed.\n\(String(describing: response.error?.localizedDescription))")
+                isSuccess(false)
+                return
+            }
+            isSuccess(true)
         }
+        
+//        Alamofire.request(baseUrl+urlTail, method: .delete, parameters: nil, encoding: JSONEncoding.default)
+//            .responseJSON { response in
+//                if response.result.isSuccess {
+//                    // Show some alert view
+//                    print("\(urlTail) i successfully deleted..")
+//                    isSuccess(true)
+//                } else {
+//                    // Show some alert view
+//                    print("Delete Operation is failed.\n\(String(describing: response.error?.localizedDescription))")
+//                    isSuccess(false)
+//                }
+//        }
     }
     
     class func CleanDatabase() {
