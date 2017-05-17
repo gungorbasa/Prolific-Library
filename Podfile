@@ -7,6 +7,11 @@ target 'The Prolific Library' do
   pod 'Alamofire', '~> 4.4'
   pod 'AlamofireNetworkActivityIndicator', '~> 2.0'
   pod 'AlamofireObjectMapper', '~> 4.0'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+  pod 'Eureka'
+#  pod 'paper-onboarding', '~> 2.0.1'
+  pod 'DZNEmptyDataSet'
+  pod 'SCLAlertView'
   # Pods for The Prolific Library
 
   target 'The Prolific LibraryTests' do

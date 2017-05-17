@@ -73,3 +73,15 @@ extension Book: Mappable {
     }
 
 }
+
+extension Book: Equatable {
+    static func ==(lhs: Book, rhs: Book) -> Bool {
+        if lhs.author == rhs.author && lhs.categories == rhs.categories &&
+            lhs.id == rhs.id && lhs.lastCheckedOut == rhs.lastCheckedOut &&
+            lhs.lastCheckedOutBy == rhs.lastCheckedOutBy && lhs.publisher == rhs.publisher &&
+            lhs.title == rhs.title && lhs.url == rhs.url {
+            return true
+        }
+        return false
+    }
+}

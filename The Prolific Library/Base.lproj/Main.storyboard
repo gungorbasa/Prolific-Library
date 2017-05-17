@@ -66,7 +66,7 @@
                     <navigationItem key="navigationItem" title="Books" id="Ihr-bu-slk">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="vTf-C7-JtQ">
                             <connections>
-                                <segue destination="Wcy-bw-lhF" kind="show" action="showDetailViewController:sender:" id="mQY-av-gR0"/>
+                                <segue destination="Wcy-bw-lhF" kind="show" identifier="AddBookSegue" id="NW9-Ga-Xwe"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="SbI-Hn-g9h">
@@ -88,7 +88,7 @@
         <!--Add Book-->
         <scene sceneID="wqw-FY-mQs">
             <objects>
-                <viewController id="Wcy-bw-lhF" sceneMemberID="viewController">
+                <viewController id="Wcy-bw-lhF" customClass="AddBookViewController" customModule="The_Prolific_Library" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gFU-ZS-Jss"/>
                         <viewControllerLayoutGuide type="bottom" id="FOr-Yf-oeH"/>
@@ -99,12 +99,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Book" id="nNy-ca-OLZ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="cUT-IJ-Hti"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="cUT-IJ-Hti">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="Wcy-bw-lhF" id="kPT-tU-WXm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Sl-EO-nOe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1294" y="1548"/>
+            <point key="canvasLocation" x="1294" y="1507"/>
         </scene>
         <!--Detail-->
         <scene sceneID="neU-jr-crB">

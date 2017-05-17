@@ -13,17 +13,15 @@ class BookTableViewController: UIViewController {
     @IBOutlet weak var editButton: UIBarButtonItem!
     var books = [Book]() {
         didSet {
-            self.tableView.reloadData()
+            if oldValue != books {
+                self.tableView.reloadData()
+            }
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
-        DataAdapter.getBooks { (result) in
-            if result != nil {
-                self.books = result!
-            }
-        }
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -32,6 +30,15 @@ class BookTableViewController: UIViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DataAdapter.getBooks { (result) in
+            if result != nil {
+                self.books = result!
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -86,15 +93,18 @@ class BookTableViewController: UIViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+//    // MARK: - Navigation
+//
+//    // In a storyboard-based application, you will often want to do a little preparation before navigation
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destinationViewController.
+//        // Pass the selected object to the new view controller.
+//        if segue.identifier == "AddBookSegue", let dest = segue.destination as? AddBookViewController {
+//            dest.navigationItem.setHidesBackButton(true, animated: false)
+//        }
+//    }
+    
 
 }
 

@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import AlamofireObjectMapper
+import AlamofireNetworkActivityIndicator
 
 class NetworkAdapter {
     static let baseUrl = "http://prolific-interview.herokuapp.com/5919f1567cc3aa000af4f717"
@@ -20,7 +21,6 @@ class NetworkAdapter {
             }
             completion(nil)
         }
-        
     }
     
     class func Post(urlTail: String, book: Book, completion: @escaping (Book?) -> Void) {
