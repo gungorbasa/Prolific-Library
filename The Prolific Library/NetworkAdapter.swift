@@ -34,22 +34,30 @@ class NetworkAdapter {
         }
     }
     
-    class func Put(urlTail: String) {
-        
+    class func Put(urlTail: String, book: Book, completion: @escaping (Book?) -> Void) {
+        print(baseUrl+urlTail)
+        let parameters = book.post
+        Alamofire.request(baseUrl+urlTail, method: .put, parameters: parameters, encoding: JSONEncoding.default)
+            .responseJSON { response in
+                if response.result.isSuccess, response.response?.statusCode == 200 {
+                    completion(book)
+                } else {
+                    completion(nil)
+                }
+                
+        }
     }
     
     class func Delete(urlTail: String, isSuccess: @escaping (Bool) -> Void) {
         Alamofire.request(baseUrl+urlTail, method: .delete, parameters: nil, encoding: JSONEncoding.default).response(queue: nil) { (response) in
-            if response.response?.statusCode == 204 {
-                guard response.error == nil else {
-                    print("Delete Operation is failed.\n\(String(describing: response.error?.localizedDescription))")
-                    isSuccess(false)
-                    return
-                }
-                isSuccess(true)
+            guard response.error == nil,
+                  let status = response.response?.statusCode,
+                  status == 204 else {
+                print("Delete Operation is failed.\n\(String(describing: response.error?.localizedDescription))")
+                isSuccess(false)
+                return
             }
-            isSuccess(false)
-            
+            isSuccess(true)
         }
     }
 }

@@ -113,7 +113,7 @@
         <!--Detail-->
         <scene sceneID="neU-jr-crB">
             <objects>
-                <viewController id="okD-hT-f4X" sceneMemberID="viewController">
+                <viewController id="okD-hT-f4X" customClass="DetailViewController" customModule="The_Prolific_Library" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nVE-Xs-435"/>
                         <viewControllerLayoutGuide type="bottom" id="0CO-c6-Lfe"/>
@@ -124,12 +124,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="hhH-2z-2L4">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="vw4-Ef-6Xc"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="vw4-Ef-6Xc">
+                            <connections>
+                                <action selector="shareButtonClicked:" destination="okD-hT-f4X" id="vJd-SS-O5u"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XRG-6T-kzY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2002" y="752"/>
+            <point key="canvasLocation" x="2089" y="752"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QP7-Q8-TTu">

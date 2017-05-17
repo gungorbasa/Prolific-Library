@@ -54,4 +54,36 @@ class CustomAlertView {
             alertView.showWarning(title, subTitle: text)
         }
     }
+    
+    static func showWithTextField(title: String, text: String,
+                textFieldPlaceholders: [String], yesButton: String,
+                noButton: String,  completion: @escaping (Bool, [String: String]?) -> Void) {
+        let appearance = SCLAlertView.SCLAppearance(
+            showCloseButton: false,
+            showCircularIcon: false
+        )
+        let alertView = SCLAlertView(appearance: appearance)
+        let count = textFieldPlaceholders.count
+        var acs: [String: UITextField] = [:]
+        
+        for i in 0..<count {
+            acs[textFieldPlaceholders[i]] = alertView.addTextField(textFieldPlaceholders[i])
+        }
+        
+        alertView.addButton(yesButton) {
+            var results = [String: String]()
+            for item in acs {
+                results[item.key] = item.value.text
+            }
+//            results = acs.map{ (key, value) in (key, value.text) }
+            completion(true, (results as [String: String]))
+        }
+        
+        alertView.addButton(noButton) {
+            completion(false, nil)
+        }
+        
+        
+        alertView.showInfo(title, subTitle: text)
+    }
 }

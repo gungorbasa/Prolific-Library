@@ -48,7 +48,9 @@ struct Book {
         return ["author" : author,
                 "categories" : categories,
                 "title" : title,
-                "publisher" : publisher
+                "publisher" : publisher,
+                "lastCheckedOut": lastCheckedOut,
+                "lastCheckedOutBy": lastCheckedOutBy
         ]
     }
     

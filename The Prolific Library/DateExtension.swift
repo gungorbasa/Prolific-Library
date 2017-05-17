@@ -12,14 +12,16 @@ extension Date {
     mutating func toDate(dateStr: String) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
         if let _date = dateFormatter.date(from: dateStr) {
             self = _date
         }
     }
     
-    func toString(date: Date) -> String {
+    static func toString(date: Date, dateFormat: String) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.dateFormat = dateFormat
         return dateFormatter.string(from: date)
     }
 }

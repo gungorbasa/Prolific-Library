@@ -21,17 +21,21 @@ class BookTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
-        
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: false)
+        }
+        
+        if tableView.isEditing {
+            tableView.setEditing(false, animated: false)
+        }
+        
+        
+        
         DataAdapter.getBooks { (result) in
             if result != nil {
                 self.books = result!
@@ -39,9 +43,30 @@ class BookTableViewController: UIViewController {
         }
     }
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "bookDetailSegue" {
+            guard let params = sender as? [String: Any],
+                  let indexPath = params["indexPath"] as? IndexPath,
+                  let editable = params["editable"] as? Bool else {
+                CustomAlertView.show(title: "Error", text: "Something went wrong.", type: .Error, duration: 1.5)
+                return
+            }
+            if let vc = segue.destination as? DetailViewController {
+                if editable {
+                    vc.navigationItem.title = "Edit Book"
+                } else {
+                    vc.navigationItem.title = "Details"
+                }
+                vc.editable = editable
+                vc.book = books[indexPath.row]
+            }
+        }
     }
     
     
@@ -54,61 +79,9 @@ class BookTableViewController: UIViewController {
         }
         tableView.setEditing(!tableView.isEditing, animated: true)
     }
-
-    
- 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    
-//    // MARK: - Navigation
-//
-//    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destinationViewController.
-//        // Pass the selected object to the new view controller.
-//        if segue.identifier == "AddBookSegue", let dest = segue.destination as? AddBookViewController {
-//            dest.navigationItem.setHidesBackButton(true, animated: false)
-//        }
-//    }
-    
-
 }
 
-
+// MARK: UITablveViewDelegate and UITableViewDataSource Methods
 extension BookTableViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -128,17 +101,39 @@ extension BookTableViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            DataAdapter.deleteBook(url: books[indexPath.row].url, isSuccess: { (isSuccess) in
-                if isSuccess {
-                    self.books.remove(at: indexPath.row)
-                } else {
-                    
-                }
-            })
-        }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+
+        let editAction = UITableViewRowAction(style: .default, title: "Edit", handler:{action, indexpath in
+            let dict = ["editable": true,
+                "indexPath": indexPath] as [String : Any]
+            self.performSegue(withIdentifier: "bookDetailSegue", sender: dict)
+        });
+        editAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
+        
+        let deleteRowAction = UITableViewRowAction(style: .destructive, title: "Delete", handler:{action, indexpath in
+            DataAdapter.deleteBook(url: self.books[indexPath.row].url, isSuccess: { (isSuccess) in
+                if isSuccess {
+                    CustomAlertView.show(title: "Success", text: "Book is deleted.", type: .Success, duration: 1.5)
+                    self.books.remove(at: indexPath.row)
+                } else {
+                    CustomAlertView.show(title: "Error", text: "Delete operation is failed.", type: .Error, duration: 1.5)
+                }
+            })
+        });
+        
+        return [deleteRowAction, editAction];
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let dict = ["editable": false,
+                    "indexPath": indexPath] as [String : Any]
+        self.performSegue(withIdentifier: "bookDetailSegue", sender: dict)
+    }
 }

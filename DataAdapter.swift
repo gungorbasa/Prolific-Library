@@ -37,6 +37,14 @@ class DataAdapter {
     
     }
     
+    class func putBook(book: Book, completion: @escaping (Book?) -> Void) {
+        NetworkAdapter.Put(urlTail: book.url, book: book) { (book) in
+            completion(book)
+        }
+        
+    }
+    
+    
     class func deleteBook(url: String, isSuccess: @escaping (Bool) -> Void) {
         NetworkAdapter.Delete(urlTail: url, isSuccess: isSuccess)
     }

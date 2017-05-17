@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		098BEBEA653A6408B5E316FF /* Pods_The_Prolific_Library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3603DA44EFD9431A54AB8066 /* Pods_The_Prolific_Library.framework */; };
+		2308AFB51ECC15C1003E24ED /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2308AFB41ECC15C1003E24ED /* DetailViewController.swift */; };
 		2368652F1ECA65D30061A303 /* BookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368652E1ECA65D30061A303 /* BookTableViewController.swift */; };
 		236865311ECA78FE0061A303 /* DataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236865301ECA78FE0061A303 /* DataAdapter.swift */; };
 		236865331ECA95540061A303 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236865321ECA95540061A303 /* DateExtension.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2308AFB41ECC15C1003E24ED /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2368652E1ECA65D30061A303 /* BookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewController.swift; sourceTree = "<group>"; };
 		236865301ECA78FE0061A303 /* DataAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataAdapter.swift; path = ../DataAdapter.swift; sourceTree = "<group>"; };
 		236865321ECA95540061A303 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				239C6F661ECB8A5500E9556F /* Eureka Form Builder */,
 				2368652E1ECA65D30061A303 /* BookTableViewController.swift */,
 				239C6F641ECB88EB00E9556F /* AddBookViewController.swift */,
+				2308AFB41ECC15C1003E24ED /* DetailViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				2368652F1ECA65D30061A303 /* BookTableViewController.swift in Sources */,
 				239C6F651ECB88EB00E9556F /* AddBookViewController.swift in Sources */,
 				239C6F6F1ECBABE100E9556F /* CustomAlertView.swift in Sources */,
+				2308AFB51ECC15C1003E24ED /* DetailViewController.swift in Sources */,
 				236865331ECA95540061A303 /* DateExtension.swift in Sources */,
 				239C6F6A1ECB8A8600E9556F /* FloatLabelTextField.swift in Sources */,
 				23CE32421ECA31B600E0F2DB /* Book.swift in Sources */,
