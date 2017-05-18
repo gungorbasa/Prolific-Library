@@ -14,12 +14,14 @@ import ChameleonFramework
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let primaryColor = UIColor(colorLiteralRed: 1.0, green: 117.0/255, blue: 124.0/255, alpha: 1.0)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        NetworkActivityIndicatorManager.shared.startDelay = 0.0
         NetworkActivityIndicatorManager.shared.isEnabled = true
-        Chameleon.setGlobalThemeUsingPrimaryColor(UIColor.flatOrange, with: .dark)
+        Chameleon.setGlobalThemeUsingPrimaryColor(primaryColor, with: .light)
+        UIButton.appearance().tintColor = primaryColor
         return true
     }
 

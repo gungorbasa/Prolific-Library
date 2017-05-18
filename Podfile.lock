@@ -11,6 +11,7 @@ PODS:
   - DZNEmptyDataSet (1.8.1)
   - Eureka (3.0.0)
   - ObjectMapper (2.2.6)
+  - PKHUD (4.2.1)
   - SCLAlertView (0.7.0)
 
 DEPENDENCIES:
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - DZNEmptyDataSet
   - Eureka
+  - PKHUD (~> 4.0)
   - SCLAlertView
 
 EXTERNAL SOURCES:
@@ -39,8 +41,9 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Eureka: f36fd440c3ebb7bfea0a4fbe6f16a05f1cb35906
   ObjectMapper: 042708195cc46c20871cbcbec0453826398273fd
+  PKHUD: 957ce2a68b3c97a51839b30216120c1dbc0c3a78
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
 
-PODFILE CHECKSUM: e726cedfcfa917fa19afe2062c56422ecba1f537
+PODFILE CHECKSUM: 5d6c61d06a5920f383cdc0f9e647ae5455599b54
 
 COCOAPODS: 1.2.0

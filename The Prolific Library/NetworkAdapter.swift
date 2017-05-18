@@ -18,8 +18,10 @@ class NetworkAdapter {
         Alamofire.request(baseUrl+urlTail).responseArray { (response: DataResponse<[Book]>) in
             if response.result.isSuccess {
                 completion(response.value)
+            } else {
+                completion(nil)
             }
-            completion(nil)
+            
         }
     }
     
@@ -29,13 +31,13 @@ class NetworkAdapter {
             .responseJSON { response in
                 if response.result.isSuccess {
                     completion(book)
+                } else {
+                    completion(nil)
                 }
-                completion(nil)
         }
     }
     
     class func Put(urlTail: String, book: Book, completion: @escaping (Book?) -> Void) {
-        print(baseUrl+urlTail)
         let parameters = book.post
         Alamofire.request(baseUrl+urlTail, method: .put, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { response in
@@ -51,13 +53,16 @@ class NetworkAdapter {
     class func Delete(urlTail: String, isSuccess: @escaping (Bool) -> Void) {
         Alamofire.request(baseUrl+urlTail, method: .delete, parameters: nil, encoding: JSONEncoding.default).response(queue: nil) { (response) in
             guard response.error == nil,
-                  let status = response.response?.statusCode,
-                  status == 204 else {
-                print("Delete Operation is failed.\n\(String(describing: response.error?.localizedDescription))")
+                  let status = response.response?.statusCode else {
                 isSuccess(false)
                 return
             }
-            isSuccess(true)
+            if status == 200 || status == 204 {
+                isSuccess(true)
+            } else {
+                isSuccess(false)
+            }
+            
         }
     }
 }

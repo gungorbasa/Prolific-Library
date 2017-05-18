@@ -62,11 +62,9 @@ class AddBookViewController: FormViewController {
                     }
                     
                     if errCount == 0 {
-                        print("Validation Passed.")
                         self.createBook()
                     } else {
                         CustomAlertView.show(title: "Error", text: "Please, fill all required fields.", type: .Error, duration: 1.5)
-                        print("Validation Failed")
                     }
             }
     }
@@ -102,6 +100,7 @@ class AddBookViewController: FormViewController {
     }
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        
         var isEmpty = true
         for (_, val) in form.values() {
             if val != nil {
@@ -115,7 +114,6 @@ class AddBookViewController: FormViewController {
         } else {
             // If not empty, just ask
             CustomAlertView.show(title: "Warning", text: "You will loose information. Do you want to continue?", type: .Warning, completion: { (popView) in
-                print(popView)
                 if popView {
                     self.navigationController?.popViewController(animated: true)
                 }

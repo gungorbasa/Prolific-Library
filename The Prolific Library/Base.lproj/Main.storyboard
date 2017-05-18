@@ -5,6 +5,8 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,33 +22,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Gg-Kq-LxN">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Gg-Kq-LxN">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookTableViewCell" textLabel="mfQ-hF-eZX" detailTextLabel="jWO-Q3-daw" style="IBUITableViewCellStyleSubtitle" id="k6q-Yc-YKQ">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookTableViewCell" rowHeight="70" id="k6q-Yc-YKQ" customClass="BookTableViewCell" customModule="The_Prolific_Library" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k6q-Yc-YKQ" id="kLc-uJ-ieC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mfQ-hF-eZX">
-                                                    <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZj-Kk-YbX">
+                                                    <rect key="frame" x="8" y="8" width="359" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jWO-Q3-daw">
-                                                    <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h52-zQ-CkZ">
+                                                    <rect key="frame" x="8" y="37" width="359" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.68888300660000001" green="0.71366006140000005" blue="0.73448425530000006" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="h52-zQ-CkZ" firstAttribute="top" secondItem="NZj-Kk-YbX" secondAttribute="bottom" constant="8" id="51L-oS-8PA"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="h52-zQ-CkZ" secondAttribute="bottom" constant="8" id="5Nc-C0-25z"/>
+                                                <constraint firstItem="h52-zQ-CkZ" firstAttribute="leading" secondItem="kLc-uJ-ieC" secondAttribute="leadingMargin" id="JWy-iD-Lfa"/>
+                                                <constraint firstItem="NZj-Kk-YbX" firstAttribute="leading" secondItem="kLc-uJ-ieC" secondAttribute="leadingMargin" id="g4Y-JH-tq0"/>
+                                                <constraint firstItem="h52-zQ-CkZ" firstAttribute="trailing" secondItem="kLc-uJ-ieC" secondAttribute="trailingMargin" id="qbh-bj-oHK"/>
+                                                <constraint firstItem="NZj-Kk-YbX" firstAttribute="trailing" secondItem="kLc-uJ-ieC" secondAttribute="trailingMargin" id="t7P-Aj-sQp"/>
+                                                <constraint firstItem="h52-zQ-CkZ" firstAttribute="top" secondItem="NZj-Kk-YbX" secondAttribute="bottom" constant="8" id="uo5-LT-QmW"/>
+                                                <constraint firstItem="NZj-Kk-YbX" firstAttribute="top" secondItem="kLc-uJ-ieC" secondAttribute="topMargin" id="wN1-Nr-Xbp"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="detailsLabel" destination="h52-zQ-CkZ" id="jRJ-v0-KGq"/>
+                                            <outlet property="titleLabel" destination="NZj-Kk-YbX" id="A8X-0I-27E"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -69,11 +83,19 @@
                                 <segue destination="Wcy-bw-lhF" kind="show" identifier="AddBookSegue" id="NW9-Ga-Xwe"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="SbI-Hn-g9h">
-                            <connections>
-                                <action selector="editButtonPressed:" destination="BYZ-38-t0r" id="MTj-b2-B1F"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="edit" id="SbI-Hn-g9h">
+                                <connections>
+                                    <action selector="editButtonPressed:" destination="BYZ-38-t0r" id="MTj-b2-B1F"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Clean DB" id="SOk-ad-BaO">
+                                <color key="tintColor" red="0.85043728350000003" green="0.21816034619999999" blue="0.15920260550000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="cleanDB:" destination="BYZ-38-t0r" id="ITc-jx-1h8"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="editButton" destination="SbI-Hn-g9h" id="9Ro-pc-elf"/>
@@ -83,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1294" y="753"/>
+            <point key="canvasLocation" x="1293.5999999999999" y="752.47376311844084"/>
         </scene>
         <!--Add Book-->
         <scene sceneID="wqw-FY-mQs">

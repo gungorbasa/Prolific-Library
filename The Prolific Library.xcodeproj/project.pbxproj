@@ -16,8 +16,8 @@
 		239C6F691ECB8A8600E9556F /* CustomCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C6F671ECB8A8600E9556F /* CustomCells.swift */; };
 		239C6F6A1ECB8A8600E9556F /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C6F681ECB8A8600E9556F /* FloatLabelTextField.swift */; };
 		239C6F6F1ECBABE100E9556F /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C6F6E1ECBABE100E9556F /* CustomAlertView.swift */; };
+		23C5A1C51ECE1BC300DE7D56 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C5A1C41ECE1BC300DE7D56 /* BookTableViewCell.swift */; };
 		23CE321E1ECA2B2E00E0F2DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE321D1ECA2B2E00E0F2DB /* AppDelegate.swift */; };
-		23CE32201ECA2B2E00E0F2DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE321F1ECA2B2E00E0F2DB /* ViewController.swift */; };
 		23CE32231ECA2B2E00E0F2DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23CE32211ECA2B2E00E0F2DB /* Main.storyboard */; };
 		23CE32251ECA2B2E00E0F2DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23CE32241ECA2B2E00E0F2DB /* Assets.xcassets */; };
 		23CE32281ECA2B2E00E0F2DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23CE32261ECA2B2E00E0F2DB /* LaunchScreen.storyboard */; };
@@ -46,9 +46,9 @@
 		239C6F671ECB8A8600E9556F /* CustomCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCells.swift; sourceTree = "<group>"; };
 		239C6F681ECB8A8600E9556F /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		239C6F6E1ECBABE100E9556F /* CustomAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		23C5A1C41ECE1BC300DE7D56 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		23CE321A1ECA2B2E00E0F2DB /* The Prolific Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Prolific Library.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23CE321D1ECA2B2E00E0F2DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		23CE321F1ECA2B2E00E0F2DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		23CE32221ECA2B2E00E0F2DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		23CE32241ECA2B2E00E0F2DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23CE32271ECA2B2E00E0F2DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,7 +98,6 @@
 		2368652D1ECA65AB0061A303 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				239C6F661ECB8A5500E9556F /* Eureka Form Builder */,
 				2368652E1ECA65D30061A303 /* BookTableViewController.swift */,
 				239C6F641ECB88EB00E9556F /* AddBookViewController.swift */,
 				2308AFB41ECC15C1003E24ED /* DetailViewController.swift */,
@@ -113,6 +112,7 @@
 				239C6F681ECB8A8600E9556F /* FloatLabelTextField.swift */,
 			);
 			name = "Eureka Form Builder";
+			path = "The Prolific Library";
 			sourceTree = "<group>";
 		};
 		239C6F6D1ECBABB900E9556F /* Alert View */ = {
@@ -123,10 +123,20 @@
 			name = "Alert View";
 			sourceTree = "<group>";
 		};
+		23C5A1C31ECE1B9900DE7D56 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				23C5A1C41ECE1BC300DE7D56 /* BookTableViewCell.swift */,
+				239C6F661ECB8A5500E9556F /* Eureka Form Builder */,
+				239C6F6D1ECBABB900E9556F /* Alert View */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		23CE32111ECA2B2E00E0F2DB = {
 			isa = PBXGroup;
 			children = (
-				239C6F6D1ECBABB900E9556F /* Alert View */,
+				23C5A1C31ECE1B9900DE7D56 /* View */,
 				23CE321C1ECA2B2E00E0F2DB /* The Prolific Library */,
 				23CE32311ECA2B2E00E0F2DB /* The Prolific LibraryTests */,
 				23CE321B1ECA2B2E00E0F2DB /* Products */,
@@ -147,12 +157,10 @@
 		23CE321C1ECA2B2E00E0F2DB /* The Prolific Library */ = {
 			isa = PBXGroup;
 			children = (
-				236865301ECA78FE0061A303 /* DataAdapter.swift */,
 				2368652D1ECA65AB0061A303 /* View Controllers */,
 				23CE32401ECA31AA00E0F2DB /* Entity */,
-				23CE323D1ECA2F3700E0F2DB /* Data */,
+				23CE323D1ECA2F3700E0F2DB /* Adapters */,
 				23CE321D1ECA2B2E00E0F2DB /* AppDelegate.swift */,
-				23CE321F1ECA2B2E00E0F2DB /* ViewController.swift */,
 				23CE32211ECA2B2E00E0F2DB /* Main.storyboard */,
 				23CE32241ECA2B2E00E0F2DB /* Assets.xcassets */,
 				23CE32261ECA2B2E00E0F2DB /* LaunchScreen.storyboard */,
@@ -171,12 +179,13 @@
 			path = "The Prolific LibraryTests";
 			sourceTree = "<group>";
 		};
-		23CE323D1ECA2F3700E0F2DB /* Data */ = {
+		23CE323D1ECA2F3700E0F2DB /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
+				236865301ECA78FE0061A303 /* DataAdapter.swift */,
 				23CE323E1ECA2F4700E0F2DB /* NetworkAdapter.swift */,
 			);
-			name = Data;
+			name = Adapters;
 			sourceTree = "<group>";
 		};
 		23CE32401ECA31AA00E0F2DB /* Entity */ = {
@@ -404,13 +413,13 @@
 			files = (
 				2368652F1ECA65D30061A303 /* BookTableViewController.swift in Sources */,
 				239C6F651ECB88EB00E9556F /* AddBookViewController.swift in Sources */,
+				23C5A1C51ECE1BC300DE7D56 /* BookTableViewCell.swift in Sources */,
 				239C6F6F1ECBABE100E9556F /* CustomAlertView.swift in Sources */,
 				2308AFB51ECC15C1003E24ED /* DetailViewController.swift in Sources */,
 				236865331ECA95540061A303 /* DateExtension.swift in Sources */,
 				239C6F6A1ECB8A8600E9556F /* FloatLabelTextField.swift in Sources */,
 				23CE32421ECA31B600E0F2DB /* Book.swift in Sources */,
 				23CE323F1ECA2F4700E0F2DB /* NetworkAdapter.swift in Sources */,
-				23CE32201ECA2B2E00E0F2DB /* ViewController.swift in Sources */,
 				23CE321E1ECA2B2E00E0F2DB /* AppDelegate.swift in Sources */,
 				239C6F691ECB8A8600E9556F /* CustomCells.swift in Sources */,
 				236865311ECA78FE0061A303 /* DataAdapter.swift in Sources */,

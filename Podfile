@@ -12,6 +12,7 @@ target 'The Prolific Library' do
 #  pod 'paper-onboarding', '~> 2.0.1'
   pod 'DZNEmptyDataSet'
   pod 'SCLAlertView'
+  pod 'PKHUD', '~> 4.0'
   # Pods for The Prolific Library
 
   target 'The Prolific LibraryTests' do

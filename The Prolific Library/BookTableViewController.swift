@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class BookTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -18,28 +19,35 @@ class BookTableViewController: UIViewController {
             }
         }
     }
+    
+    
+    func getBooks() {
+        DataAdapter.getBooks { (result) in
+            if result != nil {
+                self.books = result!
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 140
         self.automaticallyAdjustsScrollViewInsets = false
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        getBooks()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: false)
         }
         
         if tableView.isEditing {
             tableView.setEditing(false, animated: false)
-        }
-        
-        
-        
-        DataAdapter.getBooks { (result) in
-            if result != nil {
-                self.books = result!
-            }
         }
     }
     
@@ -49,27 +57,6 @@ class BookTableViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "bookDetailSegue" {
-            guard let params = sender as? [String: Any],
-                  let indexPath = params["indexPath"] as? IndexPath,
-                  let editable = params["editable"] as? Bool else {
-                CustomAlertView.show(title: "Error", text: "Something went wrong.", type: .Error, duration: 1.5)
-                return
-            }
-            if let vc = segue.destination as? DetailViewController {
-                if editable {
-                    vc.navigationItem.title = "Edit Book"
-                } else {
-                    vc.navigationItem.title = "Details"
-                }
-                vc.editable = editable
-                vc.book = books[indexPath.row]
-            }
-        }
-    }
-    
-    
     @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
         if tableView.isEditing {
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(BookTableViewController.editButtonPressed(_:)))
@@ -78,6 +65,39 @@ class BookTableViewController: UIViewController {
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(BookTableViewController.editButtonPressed(_:)))
         }
         tableView.setEditing(!tableView.isEditing, animated: true)
+    }
+    @IBAction func cleanDB(_ sender: UIBarButtonItem) {
+        CustomAlertView.show(title: "Deadly Action", text: "Do you really want to delete your database?", type: .Warning) { (yes) in
+            if yes {
+                DataAdapter.deleteAll { (success) in
+                    if success {
+                        CustomAlertView.show(title: "Success", text: "Database is cleaned.", type: .Success, duration: 1.5)
+                    } else {
+                        CustomAlertView.show(title: "Error", text: "Database Clean Error.", type: .Error, duration: 1.5)
+                    }
+                    self.getBooks()
+                }
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "bookDetailSegue" {
+            guard let params = sender as? [String: Any],
+                let indexPath = params["indexPath"] as? IndexPath,
+                let editable = params["editable"] as? Bool,
+                let vc = segue.destination as? DetailViewController else {
+                    CustomAlertView.show(title: "Error", text: "Something went wrong.", type: .Error, duration: 1.5)
+                    return
+            }
+            if editable {
+                vc.navigationItem.title = "Edit Book"
+            } else {
+                vc.navigationItem.title = "Details"
+            }
+            vc.editable = editable
+            vc.book = books[indexPath.row]
+        }
     }
 }
 
@@ -93,10 +113,11 @@ extension BookTableViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "bookTableViewCell", for: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "bookTableViewCell", for: indexPath) as! BookTableViewCell
         
-        cell.textLabel?.text = books[indexPath.row].title
-        cell.detailTextLabel?.text = books[indexPath.row].author
+        cell.titleLabel.text = books[indexPath.row].title
+        cell.detailsLabel.text = books[indexPath.row].author
+        allowMultipleLines(tableViewCell: cell)
         
         return cell
     }
@@ -135,5 +156,22 @@ extension BookTableViewController: UITableViewDataSource, UITableViewDelegate {
         let dict = ["editable": false,
                     "indexPath": indexPath] as [String : Any]
         self.performSegue(withIdentifier: "bookDetailSegue", sender: dict)
+    }
+    
+    func allowMultipleLines(tableViewCell: BookTableViewCell) {
+        tableViewCell.titleLabel.numberOfLines = 0
+        tableViewCell.titleLabel.lineBreakMode = .byWordWrapping
+        
+        tableViewCell.detailsLabel.numberOfLines = 0
+        tableViewCell.detailsLabel.lineBreakMode = .byWordWrapping
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
 }

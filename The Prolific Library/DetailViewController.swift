@@ -103,7 +103,7 @@ class DetailViewController: FormViewController {
                     let byWho = book?.lastCheckedOutBy else {
                     return
                 }
-                print(lastCheckedOut)
+                
                 var date = Date()
                 date.toDate(dateStr: lastCheckedOut)
                 // "yyyy-MM-dd'T'HH:mm:ss"
@@ -117,7 +117,6 @@ class DetailViewController: FormViewController {
                 }.onCellSelection { cell, row in
                     CustomAlertView.showWithTextField(title: "User Info", text: "Please enter user information.", textFieldPlaceholders: ["Name"], yesButton: "Ok", noButton: "Cancel", completion: { (isSuccess, textDict) in
                         if isSuccess {
-                            print("Success Button pressed")
                             let now = Date()
                             self.book?.lastCheckedOut = Date.toString(date: now, dateFormat: "yyyy-MM-dd'T'HH:mm:ss")
                             self.book?.lastCheckedOutBy = (textDict?["Name"])!
@@ -140,7 +139,7 @@ class DetailViewController: FormViewController {
         let newBook = createBookFromForm()
         if newBook != nil {
             // send update request
-            print("Update")
+//            EZLoadingActivity.show("Loading...", disableUI: true)
             DataAdapter.putBook(book: newBook!, completion: { (book) in
                 if book != nil {
                     self.navigationController?.popViewController(animated: true)
