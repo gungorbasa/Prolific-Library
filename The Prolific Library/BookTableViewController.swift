@@ -92,6 +92,7 @@ class BookTableViewController: UIViewController {
             }
             if editable {
                 vc.navigationItem.title = "Edit Book"
+                vc.navigationItem.rightBarButtonItem = nil
             } else {
                 vc.navigationItem.title = "Details"
             }
