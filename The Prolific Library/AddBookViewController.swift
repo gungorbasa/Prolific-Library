@@ -100,7 +100,7 @@ class AddBookViewController: FormViewController {
     }
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
-        
+        self.view.endEditing(true)
         var isEmpty = true
         for (_, val) in form.values() {
             if val != nil {
