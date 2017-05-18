@@ -21,15 +21,30 @@ Simple library app. You can add, checkout, edit, and delete books.
 
 * How to run tests: Please, use `The Prolific Library Tests/The_Prolific_LibraryTests.swift`
 
-## Sample Screen ##
+## Screenshots ##
 
-### Contribution guidelines ###
+### List Books Screen ###
+![List Books Screen](Readme_Images/IMG_0378.PNG)
 
-* Writing tests
-* Code review
-* Other guidelines
+### Add Book Screen ###
+![Add Book Screen](Readme_Images/IMG_0377.PNG)
 
-### Who do I talk to? ###
+### Book Details Screen ###
+![Book Details Screen](Readme_Images/IMG_0382.PNG)
 
-* Repo owner or admin
-* Other community or team contact
+### Checkout Book Screen ###
+![Checkout Book Screen](Readme_Images/IMG_0384.PNG)
+
+### Swipe to Edit/Delete Screen ###
+![Swipe to Edit/Delete Screen](Readme_Images/IMG_0379.PNG)
+
+
+### Edit Book Screen ###
+![Edit Book Screen](Readme_Images/IMG_0380.PNG)
+
+### Share Book Screen ###
+![Share Book Screen](Readme_Images/IMG_0383.PNG)
+
+
+## Side Notes ##
+* Everything should work out of the box. If you find any bug, please let me know.
