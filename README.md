@@ -4,7 +4,7 @@ Simple library app. You can add, checkout, edit, and delete books.
 
 ## What is this repository for? ##
 
-* Quick summary: Library app. Part of Prolific Interactive interview process.
+* Quick summary: Library app.
 * Version: 1.0
 
 ## How do I get set up? ##
